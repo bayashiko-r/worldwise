@@ -1,0 +1,2 @@
+データの読み込み方
+npm run server
