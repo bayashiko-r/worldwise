@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 import { BrowserRouter } from "react-router-dom";
 import { Routes, Route } from "react-router";
 import Homepage from "./pages/Homepage";
@@ -7,8 +9,7 @@ import Login from "./pages/Login";
 import AppLayout from "./pages/AppLayout";
 import CityList from "./components/CityList";
 import PageNotFound from "./pages/PageNotFound";
-import { useState } from "react";
-import { useEffect } from "react";
+import CountryList from "./components/CountryList";
 
 const BASE_URL = 'http://localhost:9000';
 
@@ -43,7 +44,7 @@ function App() {
         <Route path="app" element={<AppLayout />}>
           <Route index element={<CityList cities={cities} isLoading={isLoading} />} />
           <Route path="cities" element={<CityList cities={cities} isLoading={isLoading} />} />
-          <Route path="countries" element={<p>List of countries</p>} />
+          <Route path="countries" element={<CountryList cities={cities} isLoading={isLoading} />} />
           <Route path="form" element={<p>Form</p>} />
         </Route>
         <Route path="*" element={<PageNotFound />} />
